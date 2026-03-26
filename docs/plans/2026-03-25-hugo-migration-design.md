@@ -71,7 +71,7 @@ jonathanacosta-dev/
 
 ## Git & Deployment
 
-- `git init` locally, push to `github.com/jonathan-teamstatus/jonathanacosta-dev`
+- `git init` locally, push to `github.com/stoatmagoats/jonathanacosta-dev`
 - DigitalOcean App Platform setup and DNS migration handled manually by owner
 - Build command: `hugo --minify`, output dir: `public`
 

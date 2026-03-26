@@ -11,7 +11,7 @@ A brief description of the project and what it does.
 
 **Tech:** Hugo, Go, Markdown
 
-[View on GitHub →](https://github.com/jonathan-teamstatus)
+[View on GitHub →](https://github.com/stoatmagoats)
 
 ---
 
@@ -21,4 +21,4 @@ Another project description.
 
 **Tech:** Next.js, TypeScript, Tailwind
 
-[View on GitHub →](https://github.com/jonathan-teamstatus)
+[View on GitHub →](https://github.com/stoatmagoats)

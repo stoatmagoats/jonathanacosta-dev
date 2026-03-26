@@ -16,7 +16,7 @@ This site is deployed as a **static site** on [DigitalOcean App Platform](https:
 
 1. Log in to [DigitalOcean](https://cloud.digitalocean.com/)
 2. Go to **Apps** → **Create App**
-3. Connect your GitHub account and select `jonathan-teamstatus/jonathanacosta-dev`
+3. Connect your GitHub account and select `stoatmagoats/jonathanacosta-dev`
 4. Configure as **Static Site**:
 
 | Setting | Value |

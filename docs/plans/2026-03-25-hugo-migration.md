@@ -4,7 +4,7 @@
 
 **Goal:** Set up a Hugo static site with the Congo theme for jonathanacosta.dev and push it to GitHub.
 
-**Architecture:** Hugo static site generator using the Congo theme installed via Hugo modules (requires Go). Config split across multiple TOML files per Congo convention. Content organized as page bundles. Git repo pushed to `jonathan-teamstatus/jonathanacosta-dev` on GitHub.
+**Architecture:** Hugo static site generator using the Congo theme installed via Hugo modules (requires Go). Config split across multiple TOML files per Congo convention. Content organized as page bundles. Git repo pushed to `stoatmagoats/jonathanacosta-dev` on GitHub.
 
 **Tech Stack:** Hugo (extended), Go, Congo theme, Git, GitHub CLI (`gh`)
 
@@ -52,7 +52,7 @@ Expected: Hugo version includes `extended` (e.g., `hugo v0.145.0+extended`), Go 
 From the project root `/home/jonathan/Documents/projects/jonathanacosta-dev`:
 
 ```bash
-hugo mod init github.com/jonathan-teamstatus/jonathanacosta-dev
+hugo mod init github.com/stoatmagoats/jonathanacosta-dev
 ```
 
 Expected: Creates `go.mod` with module path.
@@ -205,7 +205,7 @@ title = "Jonathan Acosta"
   headline = "Software Developer"
   bio = "Building things on the web."
   links = [
-    { github = "https://github.com/jonathan-teamstatus" },
+    { github = "https://github.com/stoatmagoats" },
     { linkedin = "https://linkedin.com/in/jonathanacosta" },
     { email = "mailto:jonathan@jonathanacosta.dev" },
   ]
@@ -337,7 +337,7 @@ A brief description of the project and what it does.
 
 **Tech:** Hugo, Go, Markdown
 
-[View on GitHub →](https://github.com/jonathan-teamstatus)
+[View on GitHub →](https://github.com/stoatmagoats)
 
 ---
 
@@ -347,7 +347,7 @@ Another project description.
 
 **Tech:** Next.js, TypeScript, Tailwind
 
-[View on GitHub →](https://github.com/jonathan-teamstatus)
+[View on GitHub →](https://github.com/stoatmagoats)
 ```
 
 **Step 2: Verify**
@@ -452,15 +452,15 @@ git commit -m "feat: add sample blog post with code and youtube demo"
 **Step 1: Create GitHub repository and push**
 
 ```bash
-gh repo create jonathan-teamstatus/jonathanacosta-dev --public --source=. --push
+gh repo create stoatmagoats/jonathanacosta-dev --public --source=. --push
 ```
 
-Expected: Repository created on GitHub and all commits pushed. Output includes the repo URL `https://github.com/jonathan-teamstatus/jonathanacosta-dev`.
+Expected: Repository created on GitHub and all commits pushed. Output includes the repo URL `https://github.com/stoatmagoats/jonathanacosta-dev`.
 
 **Step 2: Verify on GitHub**
 
 ```bash
-gh repo view jonathan-teamstatus/jonathanacosta-dev --web
+gh repo view stoatmagoats/jonathanacosta-dev --web
 ```
 
 Expected: Opens browser to the repo page showing all files.

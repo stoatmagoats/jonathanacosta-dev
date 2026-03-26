@@ -48,7 +48,7 @@ paru -S hugo go
 
 ```bash
 # Clone the repo
-git clone https://github.com/jonathan-teamstatus/jonathanacosta-dev.git
+git clone https://github.com/stoatmagoats/jonathanacosta-dev.git
 cd jonathanacosta-dev
 
 # Start the dev server

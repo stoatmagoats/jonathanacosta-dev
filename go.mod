@@ -1,4 +1,4 @@
-module github.com/jonathan-teamstatus/jonathanacosta-dev
+module github.com/stoatmagoats/jonathanacosta-dev
 
 go 1.26.1
 

@@ -15,7 +15,7 @@ title = "Jonathan Acosta"
   headline = "Software Developer"
   bio = "Building things on the web."
   links = [
-    { github = "https://github.com/jonathan-teamstatus" },
+    { github = "https://github.com/stoatmagoats" },
     { linkedin = "https://linkedin.com/in/jonathanacosta" },
     { email = "mailto:jonathan@jonathanacosta.dev" },
   ]
