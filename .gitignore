@@ -3,6 +3,11 @@ public/
 resources/
 .hugo_build.lock
 
+# Go module files (vendored via hugo mod vendor)
+# Hidden from git to prevent DigitalOcean Go buildpack detection
+go.mod
+go.sum
+
 # OS files
 .DS_Store
 Thumbs.db
