@@ -37,7 +37,7 @@ You can embed YouTube videos using Hugo's built-in shortcode:
 
 You can include images by placing them in the same directory as this post and referencing them:
 
-![A sample image](https://via.placeholder.com/800x400.png?text=Your+Image+Here)
+![A sample image](hello.png)
 
 ## What's Next
 
