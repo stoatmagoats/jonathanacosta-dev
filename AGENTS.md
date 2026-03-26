@@ -9,8 +9,8 @@ This is a Hugo static site using the Congo theme (v2) for a personal blog at jon
 ## Tech Stack
 
 - **Hugo** (extended edition) — static site generator
-- **Congo v2** — theme, installed via Hugo modules (not git submodules)
-- **Go** — required for Hugo module system
+- **Congo v2** — theme, vendored locally in `_vendor/` (managed via Hugo modules)
+- **Go** — required locally for Hugo module management (not needed at build time)
 - **TOML** — all configuration files
 - **Markdown** — all content
 
@@ -24,6 +24,7 @@ This is a Hugo static site using the Congo theme (v2) for a personal blog at jon
 | `layouts/` | Local template overrides (takes precedence over theme) |
 | `static/` | Static files served as-is (favicon, etc.) |
 | `assets/` | Files processed by Hugo's asset pipeline (custom CSS) |
+| `_vendor/` | Vendored Congo theme (committed to git, do not edit directly) |
 | `docs/plans/` | Design documents and implementation plans |
 
 ## Configuration Files
@@ -34,6 +35,7 @@ This is a Hugo static site using the Congo theme (v2) for a personal blog at jon
 | `config/_default/params.toml` | Theme appearance: color scheme, layout, features, article display |
 | `config/_default/menus.en.toml` | Navigation menu items and ordering |
 | `config/_default/languages.en.toml` | Site title, author info, social links, date format |
+| `config.toml` | Empty marker file for DigitalOcean Hugo buildpack detection |
 
 ## Content Conventions
 
@@ -82,8 +84,9 @@ hugo server -D
 # Build for production
 hugo --minify
 
-# Update Congo theme
+# Update Congo theme (then re-vendor)
 hugo mod get -u
+hugo mod vendor
 
 # Check Hugo version
 hugo version
@@ -97,6 +100,9 @@ The file `layouts/_partials/functions/warnings.html` is a local override that re
 
 ## Important Notes
 
+- **Don't commit `go.mod` or `go.sum`** — they're in `.gitignore` to prevent DigitalOcean's Go buildpack from activating. They exist locally for Hugo module management only
+- **Don't delete `config.toml`** in the project root — it's a marker file for DigitalOcean's Hugo buildpack detection
+- **Don't edit files in `_vendor/`** directly — update the theme with `hugo mod get -u` then `hugo mod vendor`
 - **Don't modify files in the Go module cache** (`~/.cache/hugo_cache/`) — override templates locally in `layouts/` instead
 - **Don't use YAML for config** — this project uses TOML exclusively
 - **Don't add `public/` or `resources/` to git** — they're in `.gitignore`

@@ -17,19 +17,21 @@ This site is deployed as a **static site** on [DigitalOcean App Platform](https:
 1. Log in to [DigitalOcean](https://cloud.digitalocean.com/)
 2. Go to **Apps** → **Create App**
 3. Connect your GitHub account and select `stoatmagoats/jonathanacosta-dev`
-4. Configure as **Static Site**:
+4. Configure as **Static Site** (not Web Service):
 
 | Setting | Value |
 |---------|-------|
 | Branch | `main` |
 | Build Command | `hugo --minify` |
 | Output Directory | `public` |
+| Environment Slug | `hugo` |
 
-5. Add an environment variable:
+5. Add environment variables:
 
-| Variable | Value |
-|----------|-------|
-| `HUGO_VERSION` | `0.158.0` |
+| Variable         | Value     | Scope      |
+|------------------|-----------|------------|
+| `HUGO_VERSION`   | `0.158.0` | BUILD_TIME |
+| `HUGO_EXTENDED`  | `true`    | BUILD_TIME |
 
 > **Important:** Set `HUGO_VERSION` to match your local version. Without this, DigitalOcean may use an older Hugo version that produces different results.
 
@@ -65,6 +67,20 @@ After pushing, check:
 
 ## Troubleshooting
 
+### Go Buildpack Interfering ("no Go files" error)
+
+DigitalOcean's buildpack detection activates the Go buildpack if `go.mod` is present. To prevent this:
+
+1. Hugo modules are **vendored** via `hugo mod vendor` (stored in `_vendor/`)
+2. `go.mod` and `go.sum` are in `.gitignore` — they exist locally but aren't pushed to git
+3. The `environment_slug` must be `hugo`, not `go`
+
+> **Critical:** Never commit `go.mod` to the repo. If you need to update the Congo theme, run `hugo mod get -u` locally, then `hugo mod vendor` to update the vendored copy.
+
+### Buildpack Can't Detect Hugo Site
+
+DigitalOcean's Hugo buildpack looks for `config.toml`, `config.yaml`, or `config.json` in the project root. Since this project uses `config/_default/` (Hugo's directory-based config), a minimal `config.toml` exists in the root as a detection marker. **Do not delete it.**
+
 ### Build Fails with "hugo: command not found"
 
 Set the `HUGO_VERSION` environment variable in your app settings. DigitalOcean needs this to install Hugo.
@@ -76,10 +92,6 @@ Verify `baseURL` in `config/_default/hugo.toml` matches your actual domain:
 ```toml
 baseURL = "https://jonathanacosta.dev/"
 ```
-
-### Theme Module Download Fails
-
-Ensure the build environment has Go available. DigitalOcean App Platform handles this automatically when `HUGO_VERSION` is set, as it also installs Go for Hugo modules.
 
 ### Content Not Updating
 
